@@ -565,6 +565,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3294758250785316822, guid: ec768d0da5e07e7c68e0729e32760e49, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f0845b9378e8502fa9dbdafb66f08f1, type: 2}
+    - target: {fileID: 3294758251266466152, guid: ec768d0da5e07e7c68e0729e32760e49, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5746d71b33394d39194ff8ed3058ce5a, type: 2}
     - target: {fileID: 3294758251327466532, guid: ec768d0da5e07e7c68e0729e32760e49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -609,6 +617,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerVisual
       objectReference: {fileID: 0}
+    - target: {fileID: 3294758251441920655, guid: ec768d0da5e07e7c68e0729e32760e49, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f0845b9378e8502fa9dbdafb66f08f1, type: 2}
+    - target: {fileID: 3294758251951329640, guid: ec768d0da5e07e7c68e0729e32760e49, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5746d71b33394d39194ff8ed3058ce5a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -652,8 +668,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 5
   rotatespeed: 8
-  selected: {fileID: 0}
-  unselected: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
