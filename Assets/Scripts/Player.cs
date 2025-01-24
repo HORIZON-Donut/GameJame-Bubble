@@ -16,12 +16,10 @@ public class Player : MonoBehaviour
 		inputVector.x = Input.GetAxisRaw("Horizontal");
         inputVector = inputVector.normalized;
 
-		rotX = Input.GetAxisRaw("Mouse X");
-
-        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+        Vector3 moveDir = new Vector3(transform.forward.x, 0f, transform.forward.z) * inputVector.y;
 
         transform.position += moveDir * movespeed * Time.deltaTime;
-		transform.Rotate(0f, rotX*rotatespeed, 0f);
+		transform.Rotate(0f, inputVector.x*rotatespeed, 0f);
 
         isWalking = moveDir != Vector3.zero;
 
