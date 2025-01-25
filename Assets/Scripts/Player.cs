@@ -83,10 +83,10 @@ public class Player : MonoBehaviour
 				break;
 
 			case "Weapon":
-				Weapon newWeapon = collision.gameObject.GetComponentInParent<Weapon>();		//Change to get component when real weapon is here
+				Weapon newWeapon = collision.gameObject.GetComponent<Weapon>();
 				inventory.PickUpWeapon(newWeapon.weapon);
 
-				Destroy(collision.gameObject.transform.root.gameObject);
+				Destroy(collision.gameObject);
 				break;
 
 			default:
