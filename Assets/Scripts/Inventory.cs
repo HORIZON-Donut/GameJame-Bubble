@@ -37,6 +37,7 @@ public class Inventory: MonoBehaviour
 		}
 
 		holdWeapon = Instantiate(WeaponList[weaponIndex].Body, holdPoint.position, holdPoint.rotation);
+		holdWeapon.transform.SetParent(holdPoint);
 		holdWeapon.transform.localPosition = Vector3.zero;
 		holdWeapon.transform.localRotation = Quaternion.identity;
 	}
