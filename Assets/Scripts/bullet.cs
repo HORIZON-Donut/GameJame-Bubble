@@ -2,7 +2,7 @@
 
 public class Bullet : MonoBehaviour
 {
-	[SerializeField] private WeaponItem weapon;
+	public WeaponItem weapon;
 
     private int force; // Force to be applied
 	private float damage;

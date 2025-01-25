@@ -16,6 +16,8 @@ public class Weapon : MonoBehaviour
 		bullet = weapon.bullet;
 		fireRate = weapon.FireRate;
 		numberOfBullet = weapon.BulletNumber;
+
+		bullet.GetComponent<Bullet>().weapon = weapon;
 	}
 
     void Update()
