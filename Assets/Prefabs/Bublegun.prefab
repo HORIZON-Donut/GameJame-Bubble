@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 738e86f166d170a50b218312319bdd4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.1883397
+      value: -3.985
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 738e86f166d170a50b218312319bdd4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5350313
+      value: 2.3679
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 738e86f166d170a50b218312319bdd4b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.542756
+      value: 4.3277
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 738e86f166d170a50b218312319bdd4b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -75,6 +75,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 738e86f166d170a50b218312319bdd4b, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2078299475041269161}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 738e86f166d170a50b218312319bdd4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1067555285805927203}
   m_SourcePrefab: {fileID: 100100000, guid: 738e86f166d170a50b218312319bdd4b, type: 3}
 --- !u!1 &5081895159431530181 stripped
 GameObject:
@@ -94,3 +97,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 33f1c012beeb9a5e9b1a87ff99b67d3a, type: 2}
+--- !u!136 &1067555285805927203
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081895159431530181}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.2390723
+  m_Height: 16.945326
+  m_Direction: 2
+  m_Center: {x: -10.346246, y: 5.035007, z: -4.98001}
