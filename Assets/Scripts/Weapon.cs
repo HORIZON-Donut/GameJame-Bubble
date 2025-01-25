@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
 		numberOfBullet = weapon.BulletNumber;
 
 		bullet.Force = weapon.BulletSpeed;
-		bullet.damage = weapon.Demage;
+		bullet.damage = weapon.Damage;
 	}
 
     void Update()
