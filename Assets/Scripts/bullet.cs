@@ -26,7 +26,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // dek Bullet ออกจาก Scene
-        Destroy(this.gameObject);
+        if (collision.gameObject.tag  != "Player")
+        {
+            // dek Bullet ออกจาก Scene
+            Destroy(this.gameObject);
+        }
+            
     }
 }
