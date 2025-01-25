@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
 		force = weapon.BulletSpeed;
-		damage = weapon.Damege;
+		damage = weapon.Damage;
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>();
 
