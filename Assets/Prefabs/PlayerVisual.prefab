@@ -282,7 +282,7 @@ MonoBehaviour:
   spritspeed: 100
   rotatespeed: 8
   maxAngle: 60
-  holdPoint: {fileID: 0}
+  holdPoint: {fileID: 2301239682750315273}
 --- !u!136 &-4160275035072863065
 CapsuleCollider:
   m_ObjectHideFlags: 0
