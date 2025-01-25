@@ -5,7 +5,6 @@ using UnityEngine;
 public class Inventory: MonoBehaviour
 {
 	[SerializeField] private List<WeaponItem> WeaponList = new List<WeaponItem>();
-	[SerializeField] private Player player;
 
 	private Transform holdWeapon;
 	
