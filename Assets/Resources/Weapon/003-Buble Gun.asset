@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 003-Buble Gun
   m_EditorClassIdentifier: 
   WeapomName: Bubble
-  BulletNumber: 0
+  BulletNumber: 50
   Damage: 0
   FireRate: 0.1
   BulletSpeed: 500
