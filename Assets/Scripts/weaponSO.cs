@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(filaName = "New Weapon", memuName = "WeaponSO)]
-class public WeaponSO: ScriptableObject
+[CreateAssetMenu(fileName = "New Weapon", menuName = "WeaponSO")]
+public class  WeaponSO: ScriptableObject
 {
-	public String WeapomName;
+	public string WeapomName;
 	public int BulletNumber;
 	public float Damage;
 }
