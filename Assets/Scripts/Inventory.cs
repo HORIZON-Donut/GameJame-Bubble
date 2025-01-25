@@ -7,29 +7,38 @@ public class Inventory: MonoBehaviour
 	[SerializeField] private List<WeaponItem> WeaponList = new List<WeaponItem>();
 
 	private Transform holdWeapon;
-	
-	private int total = 0;
+	private Player player;
+
 	private int weaponIndex = 0;
+	private Transform holdPoint;
+
+	void Start()
+	{
+		player = GetComponent<Player>();
+		holdPoint = player.GetHoldPoint();
+	}
 
 	void Update()
 	{
-		weaponIndex += 1;
-		total = WeaponList.Count;
-		weaponIndex = weaponIndex%total;
-		
-		//if(Input.GetKeyDown(KeyCode.Space))
-		//{
-		//	holdWeapon = WeaponList[weaponIndex].Body;
-
-		//	holdWeapon.SetParent(player.transform);
-		//	holdWeapon.parent = player.GetHoldPoint();
-		//	holdWeapon.localPosition = Vector3.zero;
-		//}
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			ArmWeapon();
+		}
 	}
 
-	public void ArmWeapon(Player player)
+	public void ArmWeapon()
 	{
-		Debug.Log("Try ro change Weapon");
+		weaponIndex += 1;
+		weaponIndex = weaponIndex%WeaponList.Count;
+
+		if(holdWeapon != null)
+		{
+			Destroy(holdWeapon);
+		}
+
+		holdWeapon = Instantiate(WeaponList[weaponIndex].Body, holdPoint.position, holdPoint.rotation);
+		holdWeapon.localPosition = Vector3.zero;
+		holdWeapon.localRotation = Quaternion.identity;
 	}
 }
 

@@ -48,8 +48,6 @@ public class Player : MonoBehaviour
 		rotX = newRotation;
 
         isWalking = moveDir != Vector3.zero;
-
-		if(Input.GetKey(KeyCode.Space)){inventory.ArmWeapon(this);}
     }
     public bool IsWalking()
     {
