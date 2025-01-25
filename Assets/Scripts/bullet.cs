@@ -2,14 +2,18 @@
 
 public class Bullet : MonoBehaviour
 {
-    public int force; // Force to be applied
-	public float damage;
+	[SerializeField] private WeaponItem weapon;
+
+    private int force; // Force to be applied
+	private float damage;
 
     private Rigidbody rb; // Reference to the Rigidbody component
 
     // Start is called before the first frame update
     void Start()
     {
+		force = weapon.BulletSpeed;
+		damage = weapon.Damege;
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>();
 
