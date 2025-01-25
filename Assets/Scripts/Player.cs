@@ -7,10 +7,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float movespeed = 5f;
 	[SerializeField] private float spritspeed = 100f;
     [SerializeField] private float rotatespeed = 8f;
+	[SerializeField] private float jumpForce = 5f;
 	[SerializeField] private float maxAngle = 60;
 	[SerializeField] private Transform holdPoint;
 
     private bool isWalking;
+	private bool isGround;
 	private float rotX = 0f;
 	private float speed;
 	private GameObject Head;
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
 	void Start()
 	{
 		Head = this.transform.GetChild(0).gameObject;
+		rb = GetComponent<Rigidbody>();
 	}
 
     void Update()
@@ -48,6 +51,12 @@ public class Player : MonoBehaviour
 		rotX = newRotation;
 
         isWalking = moveDir != Vector3.zero;
+
+		if(Input.GetKeyDown(KeyCode.Space) && isGround)
+		{
+			rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+			isGround = false;
+		}
     }
     public bool IsWalking()
     {
@@ -56,7 +65,15 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		//
+		switch(collision.gameObject.tag)
+		{
+			case "Ground":
+				isGround = true;
+				break;
+
+			default:
+				break;
+		}
 	}
 
 	private void OnCollisionExit(Collision collision)
