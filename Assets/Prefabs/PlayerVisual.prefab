@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2090805117111682612}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.325, y: -0.155, z: 0.669}
+  m_LocalPosition: {x: 0.325, y: -0.155, z: 0.832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -282,8 +282,14 @@ MonoBehaviour:
   movespeed: 5
   spritspeed: 100
   rotatespeed: 8
+  jumpForce: 5
   maxAngle: 60
   holdPoint: {fileID: 2301239682750315273}
+  Health: 1000
+  Armor: 500
+  Shield: 250
+  ArmorTier: 1
+  ShieldTier: 1
 --- !u!114 &8741193086380608503
 MonoBehaviour:
   m_ObjectHideFlags: 0

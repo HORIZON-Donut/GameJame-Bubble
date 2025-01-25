@@ -6,8 +6,6 @@ public class Weapon : MonoBehaviour
 
     private GameObject bullet;  
     private float fireRate = 0.1f;
-	private int numberOfBullet;
-	private int bulletSpeed;
 
     private float nextFireTime = 0f; 
 
@@ -15,17 +13,18 @@ public class Weapon : MonoBehaviour
 	{
 		bullet = weapon.bullet;
 		fireRate = weapon.FireRate;
-		numberOfBullet = weapon.BulletNumber;
 
 		bullet.GetComponent<Bullet>().weapon = weapon;
 	}
 
     void Update()
     {    
-        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextFireTime)
+        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextFireTime && weapon.BulletNumber > 0)
         {        
             Shoot();
             nextFireTime = Time.time + fireRate;
+
+			weapon.BulletNumber--;
         }
     }
    
