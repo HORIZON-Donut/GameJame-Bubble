@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float movespeed = 5f;
     [SerializeField] private float rotatespeed = 8f;
+	[SerializeField] private float maxAngle = 60;
 
     private bool isWalking;
 	private float rotX;
@@ -36,7 +37,6 @@ public class Player : MonoBehaviour
 		Head.transform.Rotate(mouseInput.y*rotatespeed, 0f, 0f);
 
         isWalking = moveDir != Vector3.zero;
-
         //transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotatespeed);
     }
     public bool IsWalking()
