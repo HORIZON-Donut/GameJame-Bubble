@@ -3,6 +3,7 @@
 public class Bullet : MonoBehaviour
 {
     public int force; // Force to be applied
+	public float damage;
 
     private Rigidbody rb; // Reference to the Rigidbody component
 
