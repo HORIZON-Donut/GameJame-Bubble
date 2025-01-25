@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float movespeed = 5f;
     [SerializeField] private float rotatespeed = 8f;
+	[SerializeField] private float maxAngle = 60;
 
     private bool isWalking;
 	private float rotX;
