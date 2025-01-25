@@ -66,3 +66,6 @@ $RECYCLE.BIN/
 
 # Exclude Unity Play Mode Test Results
 Assets/StreamingAssets/UnityPlayModeTestResults.xml
+.vsconfig
+ 
+ 
