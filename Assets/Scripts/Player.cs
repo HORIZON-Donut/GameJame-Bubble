@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private float maxAngle = 60;
 
     private bool isWalking;
-	private float rotX;
+	private float rotX = 0f;
 	private float speed;
 	private GameObject Head;
 
@@ -38,7 +38,12 @@ public class Player : MonoBehaviour
 
         transform.position += moveDir * speed * Time.deltaTime;
 		transform.Rotate(0f, mouseInput.x*rotatespeed, 0f);
-		Head.transform.Rotate(mouseInput.y*rotatespeed, 0f, 0f);
+
+		//Head.transform.Rotate(mouseInput.y*rotatespeed, 0f, 0f);
+		float newRotation = Mathf.Clamp(rotX + mouseInput.y * rotatespeed, -maxAngle, maxAngle);
+		Head.transform.localRotation = Quaternion.Euler(newRotation, 0f, 0f);
+
+		rotX = newRotation;
 
         isWalking = moveDir != Vector3.zero;
     }
