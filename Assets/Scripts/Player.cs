@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,11 +9,11 @@ public class Player : MonoBehaviour
 
     private bool isWalking;
 	private float rotX;
-	private Transform Head;
+	private GameObject Head;
 
 	void Start()
 	{
-		Head = this.GetFirstObjectByType<Head>().GetComponentInChildren<Transform>();
+		Head = this.transform.GetChild(0).gameObject;
 	}
 
     void Update()
