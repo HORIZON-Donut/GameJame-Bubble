@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 		mouseInput.y = -Input.GetAxisRaw("Mouse Y");
 		mouseInput = mouseInput.normalized;
 
-        Vector3 moveDir = new Vector3(transform.forward.x, 0f, transform.forward.z) * inputVector.y;
+        Vector3 moveDir = (new Vector3(transform.forward.x, 0f, transform.forward.z) * inputVector.y) + (transform.right * inputVector.x);
 
         transform.position += moveDir * movespeed * Time.deltaTime;
 		transform.Rotate(0f, mouseInput.x*rotatespeed, 0f);
