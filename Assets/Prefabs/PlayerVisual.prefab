@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 3294758251327466532}
   - component: {fileID: 6024899996280613204}
   - component: {fileID: 6526866702520998810}
+  - component: {fileID: 8741193086380608503}
   - component: {fileID: -4160275035072863065}
   - component: {fileID: -9090809032532366153}
   m_Layer: 0
@@ -283,6 +284,18 @@ MonoBehaviour:
   rotatespeed: 8
   maxAngle: 60
   holdPoint: {fileID: 2301239682750315273}
+--- !u!114 &8741193086380608503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294758251327466535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3fce958c7217013d8ee052ca5dd030c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &-4160275035072863065
 CapsuleCollider:
   m_ObjectHideFlags: 0
