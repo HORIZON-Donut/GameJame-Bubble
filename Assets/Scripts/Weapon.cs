@@ -27,6 +27,12 @@ public class Weapon : MonoBehaviour
 			weapon.BulletNumber--;
         }
     }
+
+	public void TermGraShoon(int number)
+	{
+		weapon.BulletNumber += number;
+		if(weapon.BulletNumber < 0) weapon.BulletNumber = 0;
+	}
    
     void Shoot()
     {
