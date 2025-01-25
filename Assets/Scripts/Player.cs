@@ -5,11 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float movespeed = 5f;
+	[SerializeField] private float spritspeed = 100f;
     [SerializeField] private float rotatespeed = 8f;
 	[SerializeField] private float maxAngle = 60;
 
     private bool isWalking;
 	private float rotX;
+	private float speed;
 	private GameObject Head;
 
 	void Start()
@@ -30,14 +32,15 @@ public class Player : MonoBehaviour
 		mouseInput.y = -Input.GetAxisRaw("Mouse Y");
 		mouseInput = mouseInput.normalized;
 
+		if(Input.GetKey(KeyCode.LeftShift)){speed = spritspeed;} else{speed = movespeed;}
+
         Vector3 moveDir = (new Vector3(transform.forward.x, 0f, transform.forward.z) * inputVector.y) + (transform.right * inputVector.x);
 
-        transform.position += moveDir * movespeed * Time.deltaTime;
+        transform.position += moveDir * speed * Time.deltaTime;
 		transform.Rotate(0f, mouseInput.x*rotatespeed, 0f);
 		Head.transform.Rotate(mouseInput.y*rotatespeed, 0f, 0f);
 
         isWalking = moveDir != Vector3.zero;
-        //transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotatespeed);
     }
     public bool IsWalking()
     {
