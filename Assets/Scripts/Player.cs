@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private float spritspeed = 100f;
     [SerializeField] private float rotatespeed = 8f;
 	[SerializeField] private float maxAngle = 60;
+	[SerializeField] private Transform holdPoint;
 
     private bool isWalking;
 	private float rotX = 0f;
@@ -60,5 +61,10 @@ public class Player : MonoBehaviour
 	private void OnCollisionExit(Collision collision)
 	{
 		//
+	}
+
+	public Transform GetHoldPoint()
+	{
+		return holdPoint;
 	}
 }

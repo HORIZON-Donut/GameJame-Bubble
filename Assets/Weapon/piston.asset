@@ -15,3 +15,6 @@ MonoBehaviour:
   WeapomName: Piston
   BulletNumber: 0
   Damage: 0
+  FireRate: 0
+  bullet: {fileID: 3519652926690781655, guid: e93cac2f5ac6fee49893b77fa0c0e695, type: 3}
+  Body: {fileID: 9219163385815527892, guid: b47d1cc7cb7fcdd4ca0fc469859e3614, type: 3}
