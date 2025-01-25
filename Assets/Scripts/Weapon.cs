@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pistol : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     public GameObject bullet;  
     public float fireRate = 0.1f; 
