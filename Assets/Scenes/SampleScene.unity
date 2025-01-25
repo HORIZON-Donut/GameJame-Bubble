@@ -658,6 +658,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.88
       objectReference: {fileID: 0}
+    - target: {fileID: 8741193086380608503, guid: ec768d0da5e07e7c68e0729e32760e49, type: 3}
+      propertyPath: WeaponList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741193086380608503, guid: ec768d0da5e07e7c68e0729e32760e49, type: 3}
+      propertyPath: 'WeaponList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ef85710cdbf4b5fdd9ac642420c78d83, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8003059447135548877, guid: ec768d0da5e07e7c68e0729e32760e49, type: 3}
