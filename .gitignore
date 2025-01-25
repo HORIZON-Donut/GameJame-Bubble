@@ -4,6 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+[Oo]bj/
 Memorycaptures/
 UserSettings/
 
@@ -67,5 +68,3 @@ $RECYCLE.BIN/
 # Exclude Unity Play Mode Test Results
 Assets/StreamingAssets/UnityPlayModeTestResults.xml
 .vsconfig
- 
- [Oo]bj

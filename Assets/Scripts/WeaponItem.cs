@@ -6,6 +6,7 @@ public class  WeaponItem: ScriptableObject
 {
 	public string WeapomName;
 	public int BulletNumber;
+	public int StartBullet;
 	public float Damage;
 	public float FireRate;
 

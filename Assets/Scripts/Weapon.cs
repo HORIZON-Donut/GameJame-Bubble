@@ -6,11 +6,12 @@ public class Weapon : MonoBehaviour
 
     private GameObject bullet;  
     private float fireRate = 0.1f;
-
     private float nextFireTime = 0f; 
 
 	void Start()
 	{
+        weapon.BulletNumber = weapon.StartBullet;
+
 		bullet = weapon.bullet;
 		fireRate = weapon.FireRate;
 
