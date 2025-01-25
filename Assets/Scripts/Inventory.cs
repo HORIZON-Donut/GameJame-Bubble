@@ -19,11 +19,11 @@ public class Inventory: MonoBehaviour
 		
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			holdWeapon = WeaponList[weaponIndex];
+			holdWeapon = WeaponList[weaponIndex].Body;
 
-			holdWeapon.transform.SetParent(player.transform);
-			holdWeapon.transform.parent = player.GetHoldPoint();
-			holdWeapon.transform.localPosition = Vector3.zero;
+			holdWeapon.SetParent(player.transform);
+			holdWeapon.parent = player.GetHoldPoint();
+			holdWeapon.localPosition = Vector3.zero;
 		}
 	}
 
