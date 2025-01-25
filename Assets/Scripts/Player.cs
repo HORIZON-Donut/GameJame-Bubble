@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
 	void Start()
 	{
 		Head = this.transform.GetChild(0).gameObject;
+
+		inventory = GetComponent<Inventory>();
 		rb = GetComponent<Rigidbody>();
 	}
 
@@ -80,7 +82,12 @@ public class Player : MonoBehaviour
 				isGround = true;
 				break;
 
+			case "Weapon":
+				inventory.PickUpWeapon(collision.gameObject.GetComponent<Weapon>().weapon);
+				break;
+
 			default:
+				Debug.Log(collision.gameObject.tag);
 				break;
 		}
 	}

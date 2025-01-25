@@ -26,6 +26,11 @@ public class Inventory: MonoBehaviour
 		}
 	}
 
+	public void PickUpWeapon(WeaponItem weaponItem)
+	{
+		WeaponList.Add(weaponItem);
+	}
+
 	public void ArmWeapon()
 	{
 		weaponIndex += 1;

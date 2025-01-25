@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-	[SerializeField] private WeaponItem weapon;
+	public WeaponItem weapon;
 
     private GameObject bullet;  
     private float fireRate = 0.1f;
