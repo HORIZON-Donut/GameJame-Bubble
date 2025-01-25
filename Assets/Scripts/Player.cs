@@ -15,8 +15,10 @@ public class Player : MonoBehaviour
 	private bool isGround;
 	private float rotX = 0f;
 	private float speed;
+
 	private GameObject Head;
-	
+	private Rigidbody rb;
+
 	private Inventory inventory;
 
 	void Start()
