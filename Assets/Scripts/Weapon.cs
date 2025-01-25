@@ -4,7 +4,7 @@ public class Weapon : MonoBehaviour
 {
 	[SerializeField] private WeaponItem weapon;
 
-    private Transform bullet;  
+    private GameObject bullet;  
     private float fireRate = 0.1f;
 	private int numberOfBullet;
 

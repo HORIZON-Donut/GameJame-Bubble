@@ -6,7 +6,7 @@ public class Inventory: MonoBehaviour
 {
 	[SerializeField] private List<WeaponItem> WeaponList = new List<WeaponItem>();
 
-	private Transform holdWeapon;
+	private GameObject holdWeapon;
 	private Player player;
 
 	private int weaponIndex = 0;
@@ -37,8 +37,8 @@ public class Inventory: MonoBehaviour
 		}
 
 		holdWeapon = Instantiate(WeaponList[weaponIndex].Body, holdPoint.position, holdPoint.rotation);
-		holdWeapon.localPosition = Vector3.zero;
-		holdWeapon.localRotation = Quaternion.identity;
+		holdWeapon.transform.localPosition = Vector3.zero;
+		holdWeapon.transform.localRotation = Quaternion.identity;
 	}
 }
 
