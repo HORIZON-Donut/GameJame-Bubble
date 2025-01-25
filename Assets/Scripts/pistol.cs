@@ -1,15 +1,27 @@
 using UnityEngine;
 
-public class pistol : MonoBehaviour
+public class Pistol : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject bullet;  
+    public float fireRate = 0.1f; 
 
-    // Update is called once per frame
+    private float nextFireTime = 0f; 
+
+   
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        
+        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextFireTime)
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            
+            Shoot();
+            nextFireTime = Time.time + fireRate;
         }
+    }
+
+   
+    void Shoot()
+    {
+        Instantiate(bullet, transform.position, transform.rotation);
     }
 }
