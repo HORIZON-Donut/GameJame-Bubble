@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -22,5 +22,11 @@ public class Bullet : MonoBehaviour
         {
             Debug.LogError("Rigidbody component not found on this GameObject!");
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // dek Bullet ออกจาก Scene
+        Destroy(this.gameObject);
     }
 }
