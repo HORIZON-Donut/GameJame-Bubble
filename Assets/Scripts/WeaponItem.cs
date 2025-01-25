@@ -8,6 +8,7 @@ public class  WeaponItem: ScriptableObject
 	public int BulletNumber;
 	public float Damage;
 	public float FireRate;
-	public Transform bullet;
-	public Transform Body;
+
+	public GameObject bullet;
+	public GameObject Body;
 }
