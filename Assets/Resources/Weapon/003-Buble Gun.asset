@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cb4d71e2a3547fbf80ed030cdb9567b, type: 3}
-  m_Name: 001-piston
+  m_Name: 003-Buble Gun
   m_EditorClassIdentifier: 
-  WeapomName: Piston
-  BulletNumber: 12
-  Damage: 10
-  FireRate: 1
-  BulletSpeed: 250
+  WeapomName: Bubble
+  BulletNumber: 0
+  Damage: 0
+  FireRate: 0.1
+  BulletSpeed: 500
   bullet: {fileID: 3519652926690781655, guid: e93cac2f5ac6fee49893b77fa0c0e695, type: 3}
-  Body: {fileID: 9219163385815527892, guid: b47d1cc7cb7fcdd4ca0fc469859e3614, type: 3}
+  Body: {fileID: 8746164287788746402, guid: ef433a68246d16b3d84277023fb500bf, type: 3}
