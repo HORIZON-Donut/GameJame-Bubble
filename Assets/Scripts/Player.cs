@@ -21,6 +21,13 @@ public class Player : MonoBehaviour
 
 	private Inventory inventory;
 
+	public float Health = 1000f;	//Player Hp: Take full damage from enemy
+	public float Armor = 500f;		//Player Armor: Reduce damage taken
+	public float Shield = 250f;		//Player Shield: Complete prevent damage
+
+	public int ArmorTier = 1;		//Player Armor Tier: Higher tier, lower damage taken
+	public int ShieldTier = 1;		//Player Shield Tier: Higher tier, lower damage to shield
+
 	void Start()
 	{
 		Head = this.transform.GetChild(0).gameObject;
