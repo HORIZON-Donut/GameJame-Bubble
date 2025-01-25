@@ -17,18 +17,19 @@ public class Inventory: MonoBehaviour
 		total = WeaponList.Count;
 		weaponIndex = weaponIndex%total;
 		
-		if(Input.GetKeyDown(KeyCode.Space))
-		{
-			holdWeapon = WeaponList[weaponIndex].Body;
+		//if(Input.GetKeyDown(KeyCode.Space))
+		//{
+		//	holdWeapon = WeaponList[weaponIndex].Body;
 
-			holdWeapon.SetParent(player.transform);
-			holdWeapon.parent = player.GetHoldPoint();
-			holdWeapon.localPosition = Vector3.zero;
-		}
+		//	holdWeapon.SetParent(player.transform);
+		//	holdWeapon.parent = player.GetHoldPoint();
+		//	holdWeapon.localPosition = Vector3.zero;
+		//}
 	}
 
-	void ArmWeapon()
+	void ArmWeapon(Player player)
 	{
+		Debug.Log("Try ro change Weapon");
 	}
 }
 
