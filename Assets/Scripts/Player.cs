@@ -34,12 +34,9 @@ public class Player : MonoBehaviour
 
         transform.position += moveDir * movespeed * Time.deltaTime;
 		transform.Rotate(0f, mouseInput.x*rotatespeed, 0f);
-		if(Head.transform.eulerAngles.x > maxAngle){Head.transform.Rotate(mouseInput.y*rotatespeed, 0f, 0f);}
+		Head.transform.Rotate(mouseInput.y*rotatespeed, 0f, 0f);
 
         isWalking = moveDir != Vector3.zero;
-
-		Debug.Log("Rotation: " + (Head.transform.eulerAngles.x > maxAngle));
-
         //transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotatespeed);
     }
     public bool IsWalking()
