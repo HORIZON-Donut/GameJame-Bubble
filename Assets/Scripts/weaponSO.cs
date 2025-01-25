@@ -8,6 +8,6 @@ public class  WeaponSO: ScriptableObject
 	public int BulletNumber;
 	public float Damage;
 	public float FireRate;
-	public gameObject bullet;
-	public gameObject Body;
+	public GameObject bullet;
+	public GameObject Body;
 }
