@@ -27,7 +27,7 @@ public class Inventory: MonoBehaviour
 		//}
 	}
 
-	void ArmWeapon(Player player)
+	public void ArmWeapon(Player player)
 	{
 		Debug.Log("Try ro change Weapon");
 	}

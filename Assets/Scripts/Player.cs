@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 	private float rotX = 0f;
 	private float speed;
 	private GameObject Head;
+	
+	private Inventory inventory;
 
 	void Start()
 	{
@@ -40,13 +42,14 @@ public class Player : MonoBehaviour
         transform.position += moveDir * speed * Time.deltaTime;
 		transform.Rotate(0f, mouseInput.x*rotatespeed, 0f);
 
-		//Head.transform.Rotate(mouseInput.y*rotatespeed, 0f, 0f);
 		float newRotation = Mathf.Clamp(rotX + mouseInput.y * rotatespeed, -maxAngle, maxAngle);
 		Head.transform.localRotation = Quaternion.Euler(newRotation, 0f, 0f);
 
 		rotX = newRotation;
 
         isWalking = moveDir != Vector3.zero;
+
+		if(Input.GetKey(KeyCode.Space)){inventory.ArmWeapon(this);}
     }
     public bool IsWalking()
     {
