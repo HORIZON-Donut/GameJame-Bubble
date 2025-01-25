@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
 
     private bool isWalking;
 	private float rotX;
+	private Transform Head;
+
+	void Start()
+	{
+		Head = this.GetFirstObjectByType<Head>().GetComponentInChildren<Transform>();
+	}
 
     void Update()
     {
@@ -18,13 +24,14 @@ public class Player : MonoBehaviour
         inputVector = inputVector.normalized;
 
 		mouseInput.x = Input.GetAxisRaw("Mouse X");
-		mouseInput.y = Input.GetAxisRaw("Mouse Y");
+		mouseInput.y = -Input.GetAxisRaw("Mouse Y");
 		mouseInput = mouseInput.normalized;
 
         Vector3 moveDir = new Vector3(transform.forward.x, 0f, transform.forward.z) * inputVector.y;
 
         transform.position += moveDir * movespeed * Time.deltaTime;
 		transform.Rotate(0f, mouseInput.x*rotatespeed, 0f);
+		Head.transform.Rotate(mouseInput.y*rotatespeed, 0f, 0f);
 
         isWalking = moveDir != Vector3.zero;
 
