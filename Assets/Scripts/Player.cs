@@ -83,8 +83,8 @@ public class Player : MonoBehaviour
 				break;
 
 			case "Weapon":
-				WeaponItem newWeapon = collision.gameObject.GetComponent<Weapon>().weapon);
-				//inventory.PickUpWeapon(collision.gameObject.GetComponent<Weapon>().weapon);
+				WeaponItem newWeapon = collision.gameObject.GetComponentInParent<Weapon>().weapon);		//Change to get component when real weapon is here
+				inventory.PickUpWeapon(newWeapon.weapon);
 				break;
 
 			default:
