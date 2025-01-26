@@ -15,7 +15,7 @@ public class CameraScript: MonoBehaviour
 			enableCursor();
 		}
 
-		if(Input.GetKey(KeyCode.LeftAlt))
+		if(Input.GetKeyDown(KeyCode.LeftAlt))
 		{
 			disableCursor();
 		}
