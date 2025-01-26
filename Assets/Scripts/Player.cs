@@ -6,16 +6,13 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float movespeed = 5f;
 	[SerializeField] private float spritspeed = 10f;
-	[SerializeField] private float midairspeed = 100f;
     [SerializeField] private float horizontalspeed = 8f;
 	[SerializeField] private float verticalspeed = 4f;
-	[SerializeField] private float jumpForce = 5f;
 	[SerializeField] private float maxAngle = 80f;
 	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float Health = 1000f;
 	[SerializeField] private float Armor = 500f;
 	[SerializeField] private float Shield = 250f;
-	[SerializeField] private int Booster = 50;
 	
 	[SerializeField] private int ArmorTier = 1;
 	[SerializeField] private int ShieldTier =1;
@@ -43,7 +40,6 @@ public class Player : MonoBehaviour
     {
 		Walk();
 		Rotate();
-		Jump();
     }
 
 	public void TakeDanage(float amount)
@@ -85,15 +81,7 @@ public class Player : MonoBehaviour
 		}
 		else
 		{
-			if (Input.GetKey(KeyCode.E) && Booster > 0)
-			{
-				speed = midairspeed;
-				Booster--;
-			}
-			else
-			{
-				speed = movespeed;
-			}
+			speed = movespeed;
 		}
 
         Vector3 moveDir = (new Vector3(transform.forward.x, 0f, transform.forward.z) * inputVector.y) + (transform.right * inputVector.x);
@@ -116,15 +104,6 @@ public class Player : MonoBehaviour
 
 		rotX = newRotation;
 
-	}
-
-	private void Jump()
-	{
-		if(Input.GetKeyDown(KeyCode.Space) && isGround)
-		{
-			rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
-			isGround = false;
-		}
 	}
 
 	private void OnCollisionEnter(Collision collision)
@@ -171,23 +150,10 @@ public class Player : MonoBehaviour
                 Destroy(collision.gameObject);
                 break;
 
-			case "BoosterSupply":
-				SupplyDrop Boost = collision.gameObject.GetComponent<SupplyDrop>();
-				fillBooster(Boost);
-
-				Destroy(collision.gameObject);
-				break;
-
-
             default:
 				Debug.Log(collision.gameObject.tag);
 				break;
 		}
-	}
-
-	private void fillBooster(SupplyDrop Boost)
-	{
-		Booster += (int)Boost.amount;
 	}
 
     private void addShieldSupply(SupplyDrop armor)
@@ -242,10 +208,5 @@ public class Player : MonoBehaviour
 	public float GetShield()
 	{
 		return Shield;
-	}
-
-	public int GetBoost()
-	{
-		return Booster;
 	}
 }
