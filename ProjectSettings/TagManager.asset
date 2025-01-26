@@ -11,6 +11,7 @@ TagManager:
   - ArmorSupply
   - ShieldSupply
   - AmmunationSupply
+  - Wall
   layers:
   - Default
   - TransparentFX
