@@ -2609,7 +2609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6526866702520998810, guid: ec768d0da5e07e7c68e0729e32760e49, type: 3}
       propertyPath: staminaDelay
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
