@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
 				break;
 
 			case "MedicalSupply":
-				SupplyDrop new medicalSupply = collision.gameObject.GetComponent<SupplyDrop>();
+				SupplyDrop medicalSupply = collision.gameObject.GetComponent<SupplyDrop>();
 				Health += medicalSupply.amount;
 
 				Destroy(collision.gameObject);
