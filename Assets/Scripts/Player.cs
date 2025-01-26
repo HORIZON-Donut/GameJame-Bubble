@@ -121,6 +121,7 @@ public class Player : MonoBehaviour
 		switch(collision.gameObject.tag)
 		{
 			case "Ground":
+			case "Wall":
 				isGround = true;
 				break;
 
