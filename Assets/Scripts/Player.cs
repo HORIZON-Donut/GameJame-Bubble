@@ -230,4 +230,9 @@ public class Player : MonoBehaviour
 	{
 		return Shield;
 	}
+
+	public int GetBoost()
+	{
+		return Booster;
+	}
 }
