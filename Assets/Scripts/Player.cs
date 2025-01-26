@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
 				Destroy(collision.gameObject);
 				break;
 
-            case "ShiledSupply":
+            case "ShieldSupply":
                 SupplyDrop shieldSupply = collision.gameObject.GetComponent<SupplyDrop>();
                 addShieldSupply(shieldSupply);
 
