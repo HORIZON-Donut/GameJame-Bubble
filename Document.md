@@ -112,38 +112,13 @@ Player:
 
 		The function name already explain what it return
 
-using UnityEngine;
+Weapon
+======
 
-public class Weapon : MonoBehaviour
-{
-	public WeaponItem weapon;
-	public bool isHolding = false;
+This is script use to attach as component in weapon prefab
+After attached, leave isHolding as non-check to prevent annormally situation (Some ghost fire weapon)
+the weapon slot use to attach a ScriptableObject 'WeaponItem'
 
-    private GameObject bullet;  
-    private float fireRate = 0.1f;
-    private float nextFireTime = 0f; 
+This has no avilable public function
 
-	void Start()
-	{
-   		bullet = weapon.bullet;
-		fireRate = weapon.FireRate;
 
-		bullet.GetComponent<Bullet>().weapon = weapon;
-	}
-
-    void Update()
-    {    
-        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextFireTime && weapon.BulletNumber > 0 && isHolding)
-        {        
-            Shoot();
-            nextFireTime = Time.time + fireRate;
-
-			weapon.BulletNumber--;
-        }
-    }
-   
-    void Shoot()
-    {
-        Instantiate(bullet, transform.position, transform.rotation);
-    }
-}
