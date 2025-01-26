@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 001-piston
   m_EditorClassIdentifier: 
   WeapomName: Piston
-  BulletNumber: 12
+  BulletNumber: 0
+  StartBullet: 12
   Damage: 10
   FireRate: 1
   BulletSpeed: 250
