@@ -121,4 +121,54 @@ the weapon slot use to attach a ScriptableObject 'WeaponItem'
 
 This has no avilable public function
 
+Weapon Item
+===========
+
+This is ScriptableObject use to define weapon property
+Can access this by create new object and choose WeaponItem from the list
+
+The important property contain in this object
+ - Weapon name
+ 	This use to define weapon name. Pick any name you wish
+
+ - bullet number
+ 	This is number of avilable bullet for weapon
+
+ - start bullet
+ 	This is amount of bullet have when first pick up this weapon
+
+ - max bullet
+ 	This is max amount of bullet for the weapon
+
+ - damage
+ 	This is weapon damage. This will be assign to bullet object to transfer this value to target object through collision function
+
+ - fire rate
+ 	This is fire rate of the weapon. I don't know it's mechanism, so ask that one who wearing glass. He responsible on this variable
+
+ - bullet speed
+ 	This is bullet speed of this weapon. Also, i don't know this one. ask him
+
+ - bullet type
+ 	This is bullet type. take as intiger.
+	This tell inventory which bullet pick up is for which weapon. if value is equal, that bullet is belong to that weapon
+
+ - damage type
+ 	This is damage type. it will be assign to bullet to carry to target object. also take as intiger.
+
+	And this is object variable. The bullet var use to store bullet prefab that contain bullet script as component. Also, body is weapon prefab.
+	Note: The weapon compatible to these work flow must follow this structure
+		
+		root Object --> This contain weapon script and collider
+		|__sub object 1
+		|__sub object 2
+		|
+		.
+		.
+		.
+		|__sub object n
+
+ - game object: bullet
+ - game object body
+
 
