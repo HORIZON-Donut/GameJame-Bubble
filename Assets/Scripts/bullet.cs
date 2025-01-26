@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 
     private int force; // Force to be applied
 	private float damage;
+	private int Type;
 
     private Rigidbody rb; // Reference to the Rigidbody component
 
@@ -14,6 +15,7 @@ public class Bullet : MonoBehaviour
     {
 		force = weapon.BulletSpeed;
 		damage = weapon.Damage;
+		Type = weapon.DamageType;
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>();
 
@@ -32,6 +34,11 @@ public class Bullet : MonoBehaviour
 	public float DamageOnHit()
 	{
 		return damage;
+	}
+
+	public int DamageType()
+	{
+		return Type;
 	}
 
     private void OnCollisionEnter(Collision collision)

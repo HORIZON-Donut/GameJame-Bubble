@@ -12,6 +12,7 @@ public class  WeaponItem: ScriptableObject
 
 	public int BulletSpeed;
 	public int BulletType;
+	public int DamageType;
 
 	public GameObject bullet;
 	public GameObject Body;
