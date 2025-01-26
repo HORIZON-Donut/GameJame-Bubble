@@ -9,7 +9,7 @@ public class Inventory: MonoBehaviour
 	private GameObject holdWeapon;
 	private Player player;
 
-	private int weaponIndex = 0;
+	private int weaponIndex = -1;
 	private Transform holdPoint;
 
 	void Start()
@@ -48,6 +48,7 @@ public class Inventory: MonoBehaviour
 		}
 
 		holdWeapon = Instantiate(WeaponList[weaponIndex].Body, holdPoint.position, holdPoint.rotation);
+		holdWeapon.GetComponent<Weapon>().isHolding = true;
 		holdWeapon.transform.SetParent(holdPoint);
 		holdWeapon.transform.localPosition = Vector3.zero;
 		holdWeapon.transform.localRotation = Quaternion.identity;
