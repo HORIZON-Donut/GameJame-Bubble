@@ -28,14 +28,24 @@ public class Bullet : MonoBehaviour
             Debug.LogError("Rigidbody component not found on this GameObject!");
         }
     }
+	
+	public float DamageOnHit()
+	{
+		return damage;
+	}
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag  != "Player")
-        {
-            // dek Bullet ออกจาก Scene
-            Destroy(this.gameObject);
-        }
-            
+		switch (collision.gameObject.tag)
+		{
+			case "Ground":
+			case "Wall":
+				Destroy(this.gameObject);
+				break;
+
+			default:
+				Debug.Log("Hit stuff");
+				break;
+		}
     }
 }
