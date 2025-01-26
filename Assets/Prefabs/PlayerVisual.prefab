@@ -289,6 +289,7 @@ MonoBehaviour:
   Health: 1000
   Armor: 500
   Shield: 250
+  Booster: 50
   ArmorTier: 1
   ShieldTier: 1
   holdPoint: {fileID: 2301239682750315273}
@@ -306,8 +307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponList:
   - {fileID: 11400000, guid: c2d22d3a24ac5cb39bd777856ede79e3, type: 2}
-  - {fileID: 11400000, guid: ef85710cdbf4b5fdd9ac642420c78d83, type: 2}
-  - {fileID: 11400000, guid: 33f1c012beeb9a5e9b1a87ff99b67d3a, type: 2}
 --- !u!136 &-4160275035072863065
 CapsuleCollider:
   m_ObjectHideFlags: 0
