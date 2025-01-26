@@ -10,6 +10,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float rotatespeed = 8f;
 	[SerializeField] private float jumpForce = 5f;
 	[SerializeField] private float maxAngle = 60;
+	[SerializeField] private float Health = 1000f;
+	[SerializeField] private float Armor = 500f;
+	[SerializeField] private float Shield = 250f;
+	
+	[SerializeField] private int ArmorTier = 1;
+	[SerializeField] private int ShieldTier =1;
+
 	[SerializeField] private Transform holdPoint;
 
 	private bool isGround;
@@ -20,13 +27,6 @@ public class Player : MonoBehaviour
 	private Rigidbody rb;
 
 	private Inventory inventory;
-
-	public float Health = 1000f;	//Player Hp: Take full damage from enemy
-	public float Armor = 500f;		//Player Armor: Reduce damage taken
-	public float Shield = 250f;		//Player Shield: Complete prevent damage
-
-	public int ArmorTier = 1;		//Player Armor Tier: Higher tier, lower damage taken
-	public int ShieldTier = 1;		//Player Shield Tier: Higher tier, lower damage to shield
 
 	void Start()
 	{
@@ -42,6 +42,10 @@ public class Player : MonoBehaviour
 		Rotate();
 		Jump();
     }
+
+	public void TakeDanage(float amount)
+	{
+	}
 
 	private void Walk()
 	{
