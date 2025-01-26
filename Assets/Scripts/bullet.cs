@@ -59,6 +59,7 @@ public class Bullet : MonoBehaviour
 		{
 			case "Ground":
 			case "Wall":
+			case "Weapon":
 				Destroy(this.gameObject);
 				break;
 
