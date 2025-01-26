@@ -33,7 +33,8 @@ public class Inventory: MonoBehaviour
 
 	public void FillAmmor(int amount)
 	{
-		holdWeapon.GetComponent<Weapon>().TermGraShoon(amount);
+		Weapon weapon = holdWeapon.GetComponent<Weapon>();
+		weapon.TermGraShoon((int)amount);
 	}
 
 	public void ArmWeapon()
