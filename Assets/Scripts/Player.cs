@@ -52,20 +52,20 @@ public class Player : MonoBehaviour
 	{
 		float IncomeDamage = amount;
 
-		if(Shield > 0)
-		{
-			IncomeDamage = IncomeDamage/(4 * ShieldTier);
-			Shield -= IncomeDamage;
+		//if(Shield > 0)
+		//{
+		//	IncomeDamage = IncomeDamage/(4 * ShieldTier);
+		//	Shield -= IncomeDamage;
 
-			return;
-		}
+		//	return;
+		//}
 
-		if(Armor > 0)
-		{
-			IncomeDamage = IncomeDamage/(2 * ArmorTier);
-			Armor -= IncomeDamage;
-			IncomeDamage = IncomeDamage/(2 * ArmorTier);
-		}
+		//if(Armor > 0)
+		//{
+		//	IncomeDamage = IncomeDamage/(2 * ArmorTier);
+		//	Armor -= IncomeDamage;
+		//	IncomeDamage = IncomeDamage/(2 * ArmorTier);
+		//}
 
 		if(Health > 0)
 		{
