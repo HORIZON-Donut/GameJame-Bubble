@@ -282,7 +282,8 @@ MonoBehaviour:
   movespeed: 5
   spritspeed: 10
   midairspeed: 100
-  rotatespeed: 8
+  horizontalspeed: 5
+  verticalspeed: 4
   jumpForce: 5
   maxAngle: 60
   Health: 1000

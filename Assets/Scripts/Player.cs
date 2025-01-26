@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float movespeed = 5f;
 	[SerializeField] private float spritspeed = 10f;
 	[SerializeField] private float midairspeed = 100f;
-    [SerializeField] private float rotatespeed = 8f;
+    [SerializeField] private float horizontalspeed = 8f;
+	[SerializeField] private float verticalspeed = 4f;
 	[SerializeField] private float jumpForce = 5f;
 	[SerializeField] private float maxAngle = 60;
 	[SerializeField] private float Health = 1000f;
@@ -98,9 +99,9 @@ public class Player : MonoBehaviour
 		mouseInput.y = -Input.GetAxisRaw("Mouse Y");
 		mouseInput = mouseInput.normalized;
 
-		transform.Rotate(0f, mouseInput.x*rotatespeed, 0f);
+		transform.Rotate(0f, mouseInput.x*horizontalspeed, 0f);
 
-		float newRotation = Mathf.Clamp(rotX + mouseInput.y * rotatespeed, -maxAngle, maxAngle);
+		float newRotation = Mathf.Clamp(rotX + mouseInput.y * verticalspeed, -60, 80);
 		Head.transform.localRotation = Quaternion.Euler(newRotation, 0f, 0f);
 
 		rotX = newRotation;
