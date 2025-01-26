@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
 			speed = spritspeed;
 			Stamina -= 2;
 		}
-		else if(Stamina < 200)
+		else if(Input.GetKey(KeyCode.LeftShift) && Stamina < 200)
 		{
 			speed = spritspeed / 2;
 			Stamina -= 4;
