@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - MedicalSupply
   - ArmorSupply
+  - ShieldSupply
   layers:
   - Default
   - TransparentFX

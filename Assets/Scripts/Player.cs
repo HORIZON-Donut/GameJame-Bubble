@@ -110,12 +110,19 @@ public class Player : MonoBehaviour
 
 			case "ArmorSupply":
 				SupplyDrop armorSupply = collision.gameObject.GetComponent<SupplyDrop>();
-				addArmor(armorSupply);
+				addArmorSupply(armorSupply);
 
 				Destroy(collision.gameObject);
 				break;
 
-			default:
+            case "ShiledSupply":
+                SupplyDrop shieldSupply = collision.gameObject.GetComponent<SupplyDrop>();
+                addShieldSupply(shieldSupply);
+
+                Destroy(collision.gameObject);
+                break;
+
+            default:
 				Debug.Log(collision.gameObject.tag);
 				break;
 		}
@@ -126,7 +133,24 @@ public class Player : MonoBehaviour
 		//
 	}
 
-	private void addArmor(SupplyDrop armor)
+    private void addShieldSupply(SupplyDrop armor)
+    {
+
+        if (armor.tier == ShieldTier)
+        {
+            Shield += armor.amount;
+        }
+        else if (armor.tier > ShieldTier)
+        {
+            ShieldTier = armor.tier;
+        }
+        else if (armor.tier < ShieldTier)
+        {
+            Shield += armor.amount / ((2 * ShieldTier) - armor.tier);
+        }
+    }
+
+    private void addArmorSupply(SupplyDrop armor)
 	{
 		
 		if(armor.tier == ArmorTier)
@@ -139,7 +163,7 @@ public class Player : MonoBehaviour
 		}
 		else if(armor.tier < ArmorTier)
 		{
-			Armor += armor.amount / (ArmorTier - armor.tier);
+			Armor += armor.amount / ((2 * ArmorTier) - armor.tier);
 		}
 	}
 
