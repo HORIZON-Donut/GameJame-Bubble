@@ -8,9 +8,13 @@ public class Player : MonoBehaviour
 	[SerializeField] private float spritspeed = 10f;
     [SerializeField] private float horizontalspeed = 8f;
 	[SerializeField] private float verticalspeed = 4f;
-	[SerializeField] private float maxAngle = 80f;
+	[SerializeField] private float maxAngle = 80f;	
 	[SerializeField] private float minAngle = -60f;
+	
 	[SerializeField] private float Health = 1000f;
+	[SerializeField] private int Stamina = 500;
+	[SerializeField] private int maxStamina = 1000;
+	[SerializeField] private int staminaDelay = 200;
 	[SerializeField] private float Armor = 500f;
 	[SerializeField] private float Shield = 250f;
 	
@@ -19,9 +23,9 @@ public class Player : MonoBehaviour
 
 	[SerializeField] private Transform holdPoint;
 
-	private bool isGround = true;
 	private float rotX = 0f;
 	private float speed;
+	private int counter = 0;
 
 	private GameObject Head;
 	private Rigidbody rb;
@@ -40,6 +44,8 @@ public class Player : MonoBehaviour
     {
 		Walk();
 		Rotate();
+		Stamina = (Stamina > maxStamina) ? maxStamina : Stamina;
+		Stamina = (Stamina < 0) ? 0 : Stamina;
     }
 
 	public void TakeDanage(float amount)
@@ -67,6 +73,16 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	private void increaseStamina()
+	{
+		counter++;
+		if(counter > staminaDelay)
+		{
+			counter = 0;
+			Stamina++;
+		}
+	}
+
 	private void Walk()
 	{
         Vector2 inputVector = new Vector2(0, 0);
@@ -75,13 +91,21 @@ public class Player : MonoBehaviour
 		inputVector.x = Input.GetAxisRaw("Horizontal");
         inputVector = inputVector.normalized;
 		
-		if(isGround)
+		if(Input.GetKey(KeyCode.LeftShift) && Stamina > 200)
 		{
-			speed = Input.GetKey(KeyCode.LeftShift) ? spritspeed : movespeed;
+			speed = spritspeed;
+			Stamina -= 2;
+		}
+		else if(Stamina < 200)
+		{
+			speed = spritspeed / 2;
+			Stamina -= 4;
 		}
 		else
 		{
-			speed = movespeed;
+			if(Stamina > 0){speed = movespeed;}
+			else {speed = movespeed / 2;}
+			increaseStamina();
 		}
 
         Vector3 moveDir = (new Vector3(transform.forward.x, 0f, transform.forward.z) * inputVector.y) + (transform.right * inputVector.x);
@@ -110,11 +134,6 @@ public class Player : MonoBehaviour
 	{
 		switch(collision.gameObject.tag)
 		{
-			case "Ground":
-			case "Wall":
-				isGround = true;
-				break;
-
 			case "Weapon":
 				Weapon newWeapon = collision.gameObject.GetComponent<Weapon>();
 				inventory.PickUpWeapon(newWeapon.weapon);
@@ -208,5 +227,10 @@ public class Player : MonoBehaviour
 	public float GetShield()
 	{
 		return Shield;
+	}
+
+	public int GetStamina()
+	{
+		return Stamina;
 	}
 }
