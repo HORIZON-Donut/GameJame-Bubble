@@ -45,6 +45,27 @@ public class Player : MonoBehaviour
 
 	public void TakeDanage(float amount)
 	{
+		float IncomeDamage = amount;
+
+		if(Shield > 0)
+		{
+			IncomeDamage = IncomeDamage/(4 * ShieldTier);
+			Shield -= IncomeDamage;
+
+			return;
+		}
+
+		if(Armor > 0)
+		{
+			IncomeDamage = IncomeDamage/(2 * ArmorTier);
+			Armor -= IncomeDamage;
+			IncomeDamage = IncomeDamage/(2 * ArmorTier);
+		}
+
+		if(Health > 0)
+		{
+			Health -= IncomeDamage;
+		}
 	}
 
 	private void Walk()
@@ -182,5 +203,20 @@ public class Player : MonoBehaviour
 	public Transform GetHoldPoint()
 	{
 		return holdPoint;
+	}
+
+	public float GetHalth()
+	{
+		return Health;
+	}
+
+	public float GetArmor()
+	{
+		return Armor;
+	}
+
+	public float GetArmor()
+	{
+		return Armor;
 	}
 }
