@@ -11,6 +11,7 @@ public class  WeaponItem: ScriptableObject
 	public float FireRate;
 
 	public int BulletSpeed;
+	public int BulletType;
 
 	public GameObject bullet;
 	public GameObject Body;

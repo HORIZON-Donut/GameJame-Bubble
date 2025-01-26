@@ -37,10 +37,16 @@ public class Inventory: MonoBehaviour
 		WeaponList.Add(weaponItem);
 	}
 
-	public void FillAmmor(int amount)
+	public void FillAmmor(int amount, int type)
 	{
-		Weapon weapon = holdWeapon.GetComponent<Weapon>();
-		weapon.TermGraShoon((int)amount);
+		foreach (var weapon in WeaponList)
+		{
+			if(weapon.BulletType == type)
+			{
+				weapon.BulletNumber += amount;
+				return;
+			}
+		}
 	}
 
 	public void ArmWeapon()
