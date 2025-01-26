@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float movespeed = 5f;
-	[SerializeField] private float spritspeed = 100f;
+	[SerializeField] private float spritspeed = 10f;
+	[SerializeField] private float midairspeed = 100f;
     [SerializeField] private float rotatespeed = 8f;
 	[SerializeField] private float jumpForce = 5f;
 	[SerializeField] private float maxAngle = 60;
@@ -49,7 +50,18 @@ public class Player : MonoBehaviour
 		mouseInput.y = -Input.GetAxisRaw("Mouse Y");
 		mouseInput = mouseInput.normalized;
 
-		if(Input.GetKey(KeyCode.LeftShift)){speed = spritspeed;} else{speed = movespeed;}
+		if(Input.GetKey(KeyCode.LeftShift))
+		{
+			speed = spritspeed;
+			if(!isGround)
+			{
+				speed = midairspeed;
+			}
+		} 
+		else
+		{
+			speed = movespeed;
+		}
 
         Vector3 moveDir = (new Vector3(transform.forward.x, 0f, transform.forward.z) * inputVector.y) + (transform.right * inputVector.x);
 
