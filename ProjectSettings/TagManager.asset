@@ -10,6 +10,7 @@ TagManager:
   - MedicalSupply
   - ArmorSupply
   - ShieldSupply
+  - AmmunationSupply
   layers:
   - Default
   - TransparentFX
