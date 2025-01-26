@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 		Stamina = (Stamina < 0) ? 0 : Stamina;
     }
 
-	public void TakeDanage(float amount)
+	public void TakeDamage(float amount)
 	{
 		float IncomeDamage = amount;
 

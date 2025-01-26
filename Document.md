@@ -1,0 +1,149 @@
+THE DOCUMENTATION FOR PLAYER, INVENTORY, WEAPON, AND BULLET USAGE
+-----------------------------------------------------------------
+
+Player:
+======
+	Attach with bunch of important variable and function to interact with player charector
+ - Variable list:
+ 	>> move speed: default = 5
+		Use to set player normal walkspeed
+
+	>> sprit speed: default 10
+		Use to set player running speed
+
+	>> horizontal speed: default 8
+		Use to set horizontal rotation speed
+	
+	>> vertical speed: default 4
+		Use to set vertical rotation speed
+
+	>> min - max Angle : default -60 to 80
+		Use to set max angle of vertical rotation
+	
+	>> Health: default 1000
+		Use to set player health
+
+		This is player health. If it ran out, player death
+		... May have attack type that ignore all defend and do direct damage to health bar
+		... And may have ont hit attack
+	
+	>> Armor: default 500
+		Use to set player Armor
+
+		This thing reduce damage player take from get hit but did not completely prevent all damage
+		... May have attack type to ignore this type of defend
+	
+	>> Shield: default 250
+		Use to set player shield
+
+		This thing keep damage from player
+		If shield still work, nothing can hurt player
+		... May have attack type to ignore this type of defend
+	
+	>> Stamina: default 500
+		This use to set player stamina
+
+		Stamina is important. it use to running (Except, you play no running challenge)
+		This thing will re-generate automatically
+	
+	>> max Variable series
+	 - Include: health, armor, shield, and stamina
+		 This type of variable use to set max value for each variable mention.
+
+	>> Tier Variable series
+	 - Include: Armor, and Shield
+	 	This type of variable use to define tier of that variable
+
+		Will be use as multiplier when use those stuff.
+		This make higher tier, higher quality
+	
+	>> stamina daley: default 20
+		This use to set delay (How many loop pass) before re-generate one amount of stamina
+	
+	>> hold point
+		This is player hold point use to set where weapon will be place
+	
+	>> And there are other important variable but was define as private variable
+	 - rotX
+	 - speed
+	 - counter
+	 - head
+	 - rb
+	 - inventory
+	
+ - Function List
+
+ This is public function that can be access to interact with player
+ 	
+	>> TakeDamage(float amount)		//May add "int type" later to define which attack type taken and define how to interact with player stat
+		
+		Use case:
+			use in attack object by check with collision
+			Example:
+
+			|_ in attack object script
+
+			private void OnCollisionEnter(Collision collision)
+			{
+				switch(collision.gameObject.tag)
+				{
+					case "Player":
+						Player player = collision.gameObject.GetComponent<Player>();
+						player.TakeDamage(ObjectDamage);	// use player.TakeDamage(ObjectDamage, DamageType) when attack type defined
+
+						.
+						.
+						.
+			____________
+
+		What it does?
+			It will take damage amount and make player weaker
+			In this case, damage type haven't define yet, so
+
+			if shield amount > 0, prevent all damage from player and reduce damage taken to shield. shield reduce for damage devide by product of shield tier and 4
+
+			if shield has broken but armor stood still. It will reduce player damage taken. Which armor take half of full damage and player take only half 4 of full damage
+
+			if all shield and armor gone, player take full damage
+	>> Return value series
+	 - Include: GetHoldPoint, GetHealth, GetArmor, GetShield, and GetStamina
+	 	
+		These function use to return important value from variable and take no argument.
+
+		The function name already explain what it return
+
+using UnityEngine;
+
+public class Weapon : MonoBehaviour
+{
+	public WeaponItem weapon;
+	public bool isHolding = false;
+
+    private GameObject bullet;  
+    private float fireRate = 0.1f;
+    private float nextFireTime = 0f; 
+
+	void Start()
+	{
+   		bullet = weapon.bullet;
+		fireRate = weapon.FireRate;
+
+		bullet.GetComponent<Bullet>().weapon = weapon;
+	}
+
+    void Update()
+    {    
+        if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextFireTime && weapon.BulletNumber > 0 && isHolding)
+        {        
+            Shoot();
+            nextFireTime = Time.time + fireRate;
+
+			weapon.BulletNumber--;
+        }
+    }
+   
+    void Shoot()
+    {
+        Instantiate(bullet, transform.position, transform.rotation);
+    }
+}
