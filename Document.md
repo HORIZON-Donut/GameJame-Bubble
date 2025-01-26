@@ -75,8 +75,7 @@ Player:
 
  This is public function that can be access to interact with player
  	
-	>> TakeDamage(float amount)		//May add "int type" later to define which attack type taken and define how to interact with player stat
-		
+	>> TakeDamage(float amount, int type		
 		Use case:
 			use in attack object by check with collision
 			Example:
@@ -89,7 +88,7 @@ Player:
 				{
 					case "Player":
 						Player player = collision.gameObject.GetComponent<Player>();
-						player.TakeDamage(ObjectDamage);	// use player.TakeDamage(ObjectDamage, DamageType) when attack type defined
+						player.TakeDamage(ObjectDamageAmount, DamageType);
 
 						.
 						.
@@ -98,13 +97,38 @@ Player:
 
 		What it does?
 			It will take damage amount and make player weaker
-			In this case, damage type haven't define yet, so
+			Result depend on damage type.
+			There are 6 type of damage
+			 - type 0: normal damage
+			 	->	This damage type do damage to player normally.
+					It do less damage to shield while shield completely prevent all damage from reach armor and player.
+					When shield down, armor keep reduce damage before reach player, till it break down.
+					And when the shield fall, it do full damage to player.
 
-			if shield amount > 0, prevent all damage from player and reduce damage taken to shield. shield reduce for damage devide by product of shield tier and 4
+			 - type 1: shield penetrate
+			 	->	This type of damage good for Fast Disable Player Shield.
+					It do most damage to player's shield, but do little damage to armor.
+					This damage still do full damage to player if player has no armor and shield.
 
-			if shield has broken but armor stood still. It will reduce player damage taken. Which armor take half of full damage and player take only half 4 of full damage
+			 - type 2: armor penetrate
+			 	->	This type of damage bad for deal with shield but good to take down player with high armor.
+					The damage will Make at 2 time to armor and do half damage to player.
 
-			if all shield and armor gone, player take full damage
+			 - type 3: direct hit
+			 	->	This type of damage do damage directly to player.
+					No armor and shield will protect player from this type of damage.
+
+			 - type 4: emp damage
+			 	->	This damage type do a little damage to player, but good for disable player shield.
+					When get hit by this type, player shield will completely disappear.
+
+			 - type 5: protection breaker
+			 	->	This damage type has ability to take down player protection in one hit.
+					Protection tier completely useless to this type of damage.
+					But player will take less damage with higher protection tier what shield and armor broken.
+
+			 - In case of non of the above: use normal damage
+
 	>> Return value series
 	 - Include: GetHoldPoint, GetHealth, GetArmor, GetShield, and GetStamina
 	 	
