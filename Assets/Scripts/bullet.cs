@@ -2,7 +2,7 @@
 
 public class Bullet : MonoBehaviour
 {
-	private WeaponItem weapon;
+	public WeaponItem weapon;
 
     private int force; // Force to be applied
 	private float damage;
@@ -28,10 +28,6 @@ public class Bullet : MonoBehaviour
             Debug.LogError("Rigidbody component not found on this GameObject!");
         }
     }
-	public void setWeaponParent(WeaponItem weaponize)
-	{
-		weapon = weaponize;
-	}
 	
 	public float DamageOnHit()
 	{

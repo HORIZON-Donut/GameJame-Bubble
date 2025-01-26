@@ -15,8 +15,7 @@ public class Weapon : MonoBehaviour
 		bullet = weapon.bullet;
 		fireRate = weapon.FireRate;
 
-		bullet.GetComponent<Bullet>();
-		bullet.setWeaponParent(weapon);
+		bullet.GetComponent<Bullet>().weapon = weapon;
 	}
 
     void Update()
