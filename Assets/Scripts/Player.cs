@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private float Health = 1000f;
 	[SerializeField] private float Armor = 500f;
 	[SerializeField] private float Shield = 250f;
+	[SerializeField] private int Booster = 50;
 	
 	[SerializeField] private int ArmorTier = 1;
 	[SerializeField] private int ShieldTier =1;
@@ -83,7 +84,15 @@ public class Player : MonoBehaviour
 		}
 		else
 		{
-			speed = Input.GetKey(KeyCode.E) ? midairspeed : movespeed;
+			if (Input.GetKey(KeyCode.E) && Booster > 0)
+			{
+				speed = midairspeed;
+				Booster--;
+			}
+			else
+			{
+				speed = movespeed;
+			}
 		}
 
         Vector3 moveDir = (new Vector3(transform.forward.x, 0f, transform.forward.z) * inputVector.y) + (transform.right * inputVector.x);
