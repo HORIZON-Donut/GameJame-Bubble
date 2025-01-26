@@ -215,8 +215,8 @@ public class Player : MonoBehaviour
 		return Armor;
 	}
 
-	public float GetArmor()
+	public float GetShield()
 	{
-		return Armor;
+		return Shield;
 	}
 }
