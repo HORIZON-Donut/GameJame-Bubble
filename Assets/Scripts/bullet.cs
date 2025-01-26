@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     private int force; // Force to be applied
 	private float damage;
 	private int Type;
+	private int airTime;
 
     private Rigidbody rb; // Reference to the Rigidbody component
 
@@ -16,6 +17,7 @@ public class Bullet : MonoBehaviour
 		force = weapon.BulletSpeed;
 		damage = weapon.Damage;
 		Type = weapon.DamageType;
+		airTime = weapon.FlyTime;
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>();
 
@@ -30,6 +32,16 @@ public class Bullet : MonoBehaviour
             Debug.LogError("Rigidbody component not found on this GameObject!");
         }
     }
+
+	void Update()
+	{
+		airTime--;
+
+		if(airTime < 0)
+		{
+			Destroy(this.gameObject);
+		}
+	}
 	
 	public float DamageOnHit()
 	{
