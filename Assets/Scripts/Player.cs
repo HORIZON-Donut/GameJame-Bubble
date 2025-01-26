@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float horizontalspeed = 8f;
 	[SerializeField] private float verticalspeed = 4f;
 	[SerializeField] private float jumpForce = 5f;
-	[SerializeField] private float maxAngle = 60;
+	[SerializeField] private float maxAngle = 80f;
+	[SerializeField] private float minAngle = -60f;
 	[SerializeField] private float Health = 1000f;
 	[SerializeField] private float Armor = 500f;
 	[SerializeField] private float Shield = 250f;
@@ -110,7 +111,7 @@ public class Player : MonoBehaviour
 
 		transform.Rotate(0f, mouseInput.x*horizontalspeed, 0f);
 
-		float newRotation = Mathf.Clamp(rotX + mouseInput.y * verticalspeed, -60, 80);
+		float newRotation = Mathf.Clamp(rotX + mouseInput.y * verticalspeed, minAngle, maxAngle);
 		Head.transform.localRotation = Quaternion.Euler(newRotation, 0f, 0f);
 
 		rotX = newRotation;
