@@ -89,6 +89,10 @@ public class Player : MonoBehaviour
 				Destroy(collision.gameObject);
 				break;
 
+			case "MedicalSupply":
+				Debug.Log("Found Medical supply");
+				break
+
 			default:
 				Debug.Log(collision.gameObject.tag);
 				break;
