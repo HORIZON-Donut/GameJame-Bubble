@@ -170,11 +170,23 @@ public class Player : MonoBehaviour
                 Destroy(collision.gameObject);
                 break;
 
+			case "BoosterSupply":
+				SupplyDrop Boost = collision.gameObject.GetComponent<SupplyDrop>();
+				fillBooster(Boost);
+
+				Destroy(collision.gameObject);
+				break;
+
 
             default:
 				Debug.Log(collision.gameObject.tag);
 				break;
 		}
+	}
+
+	private void fillBooster(SupplyDrop Boost)
+	{
+		Booster += (int)Boost.amount;
 	}
 
     private void addShieldSupply(SupplyDrop armor)
