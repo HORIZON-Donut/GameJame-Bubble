@@ -199,4 +199,17 @@ When attach, it provide slot for pre-store weapon. input weapon item object to p
 
 This script also handle take like Swap weapon, fill ammunation on each weapon, and make player able to hold and pick up weapon on flow.
 
+Camera Script (Cursor control mode)
+===================================
+This script attach to main camera of player
+It provide function to handle cursor on screen
+
+Function Avilable:
+------------------
+ - enableCursor()
+ 	Make cursor visible and usable
+ - disableCursor()
+ 	Make cursor dissapear
+
+In real usage, Update() function should be remove
 
