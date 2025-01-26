@@ -96,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb119d01dd4c3795b05d55f9a810202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShootPoint: {fileID: 7037512356048150705}
   weapon: {fileID: 11400000, guid: 33f1c012beeb9a5e9b1a87ff99b67d3a, type: 2}
+  isHolding: 0
 --- !u!136 &1067555285805927203
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -120,3 +122,8 @@ CapsuleCollider:
   m_Height: 16.945326
   m_Direction: 2
   m_Center: {x: -10.346246, y: 5.035007, z: -4.98001}
+--- !u!1 &7037512356048150705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3165372319322381093, guid: 738e86f166d170a50b218312319bdd4b, type: 3}
+  m_PrefabInstance: {fileID: 5352507717778717588}
+  m_PrefabAsset: {fileID: 0}

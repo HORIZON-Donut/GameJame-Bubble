@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: 003-Buble Gun
   m_EditorClassIdentifier: 
   WeapomName: Bubble
-  BulletNumber: 0
+  BulletNumber: 32
   StartBullet: 50
+  maxBullet: 1000
   Damage: 0
   FireRate: 0.1
+  FlyTime: 500
   BulletSpeed: 500
   BulletType: 2
+  DamageType: 0
   bullet: {fileID: 3519652926690781655, guid: e93cac2f5ac6fee49893b77fa0c0e695, type: 3}
   Body: {fileID: 5081895159431530181, guid: ef433a68246d16b3d84277023fb500bf, type: 3}

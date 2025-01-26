@@ -281,18 +281,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 5
   spritspeed: 10
-  horizontalspeed: 5
+  horizontalspeed: 8
   verticalspeed: 4
   maxAngle: 60
   minAngle: -60
-  Health: 1000
-  Stamina: 500
-  maxStamina: 1000
-  staminaDelay: 100
+  Health: 255
   Armor: 500
-  Shield: 250
+  Shield: 500
+  Stamina: 1000
+  maxHealth: 255
+  maxArmor: 500
+  maxShield: 500
+  maxStamina: 1000
   ArmorTier: 1
   ShieldTier: 1
+  staminaDelay: 20
   holdPoint: {fileID: 2301239682750315273}
 --- !u!114 &8741193086380608503
 MonoBehaviour:

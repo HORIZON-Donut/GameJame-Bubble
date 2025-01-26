@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+	[SerializeField] private GameObject ShootPoint;
 	public WeaponItem weapon;
 	public bool isHolding = false;
 
-    private GameObject bullet;  
+    private GameObject bullet;
+	private Transform shootPoint;
     private float fireRate = 0.1f;
     private float nextFireTime = 0f; 
 
@@ -15,6 +17,7 @@ public class Weapon : MonoBehaviour
 		fireRate = weapon.FireRate;
 
 		bullet.GetComponent<Bullet>().weapon = weapon;
+		shootPoint = ShootPoint.GetComponent<Transform>();
 	}
 
     void Update()
@@ -30,6 +33,6 @@ public class Weapon : MonoBehaviour
    
     void Shoot()
     {
-        Instantiate(bullet, transform.position, transform.rotation);
+        Instantiate(bullet, ShootPoint.transform.position, ShootPoint.transform.rotation);
     }
 }
