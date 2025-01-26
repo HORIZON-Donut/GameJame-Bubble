@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
 
 			case "MedicalSupply":
 				Debug.Log("Found Medical supply");
-				break
+				break;
 
 			default:
 				Debug.Log(collision.gameObject.tag);
