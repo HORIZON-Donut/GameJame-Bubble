@@ -37,16 +37,19 @@ public class Inventory: MonoBehaviour
 		WeaponList.Add(weaponItem);
 	}
 
-	public void FillAmmor(int amount, int type)
+	public bool FillAmmor(int amount, int type)
 	{
 		foreach (var weapon in WeaponList)
 		{
 			if(weapon.BulletType == type)
 			{
+				if(weapon.BulletNumber >= weapon.maxBullet){return false;}
 				weapon.BulletNumber += amount;
-				return;
+				return true;
 			}
 		}
+
+		return false;
 	}
 
 	public void ArmWeapon()
