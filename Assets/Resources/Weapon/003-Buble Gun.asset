@@ -18,5 +18,6 @@ MonoBehaviour:
   Damage: 0
   FireRate: 0.1
   BulletSpeed: 500
+  BulletType: 2
   bullet: {fileID: 3519652926690781655, guid: e93cac2f5ac6fee49893b77fa0c0e695, type: 3}
   Body: {fileID: 5081895159431530181, guid: ef433a68246d16b3d84277023fb500bf, type: 3}

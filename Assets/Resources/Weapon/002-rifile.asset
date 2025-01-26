@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 002-rifile
   m_EditorClassIdentifier: 
   WeapomName: Rifile
-  BulletNumber: 0
+  BulletNumber: 22
   StartBullet: 30
   Damage: 0
   FireRate: 0.1
   BulletSpeed: 1000
+  BulletType: 1
   bullet: {fileID: 3519652926690781655, guid: e93cac2f5ac6fee49893b77fa0c0e695, type: 3}
   Body: {fileID: 9219163385815527892, guid: c2e7c4a5d37cd756aa904831fd452dfa, type: 3}
