@@ -12,8 +12,24 @@ public class CameraScript: MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
+			enableCursor();
 		}
+
+		if(Input.GetKey(KeyCode.LeftAlt))
+		{
+			disableCursor();
+		}
+	}
+
+	public void enableCursor()
+	{
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+	}
+
+	public void disableCursor()
+	{
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 }
