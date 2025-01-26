@@ -31,6 +31,11 @@ public class Inventory: MonoBehaviour
 		WeaponList.Add(weaponItem);
 	}
 
+	public void FillAmmor(int amount)
+	{
+		holdWeapon.TermGraShoon(amount);
+	}
+
 	public void ArmWeapon()
 	{
 		weaponIndex += 1;

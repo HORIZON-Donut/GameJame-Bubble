@@ -122,6 +122,14 @@ public class Player : MonoBehaviour
                 Destroy(collision.gameObject);
                 break;
 
+            case "AmmunationSupply":
+                SupplyDrop ammunationSupply = collision.gameObject.GetComponent<SupplyDrop>();
+                inventory.FillAmmor(ammunationSupply.amount);
+
+                Destroy(collision.gameObject);
+                break;
+
+
             default:
 				Debug.Log(collision.gameObject.tag);
 				break;
