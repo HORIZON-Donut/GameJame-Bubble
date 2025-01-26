@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
 
             case "AmmunationSupply":
                 SupplyDrop ammunationSupply = collision.gameObject.GetComponent<SupplyDrop>();
-                inventory.FillAmmor(ammunationSupply.amount);
+                inventory.FillAmmor((int)ammunationSupply.amount);
 
                 Destroy(collision.gameObject);
                 break;
