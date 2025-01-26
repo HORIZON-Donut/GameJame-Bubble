@@ -171,4 +171,21 @@ The important property contain in this object
  - game object: bullet
  - game object body
 
+Bullet
+=====
+
+This script must attach as component to bullet prefab
+After attached, leave weapon slot empty.
+It will be assign on fly
+
+This script provide function to take damage value and damage type
+
+Function List
+ - DamageOnHit()
+ 	Use to get damage of the bullet
+	return value as float number
+ - DamageType()
+ 	use to get type of bullet
+	return as intiger number
+
 
