@@ -118,6 +118,7 @@ Weapon
 This is script use to attach as component in weapon prefab
 After attached, leave isHolding as non-check to prevent annormally situation (Some ghost fire weapon)
 the weapon slot use to attach a ScriptableObject 'WeaponItem'
+and the Shoot Point use to attach a game object to make spaw point for bullet
 
 This has no avilable public function
 
