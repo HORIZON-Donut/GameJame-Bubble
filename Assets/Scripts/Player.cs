@@ -53,29 +53,149 @@ public class Player : MonoBehaviour
 		Stamina = (Stamina < 0) ? 0 : Stamina;
     }
 
-	public void TakeDamage(float amount)
+	public void TakeDamage(float amount, int type)
 	{
 		float IncomeDamage = amount;
+		switch (type)
+		{
+			case 0:
+				normalDamage(IncomeDamage);
+				break;
 
+			case 1:
+				shieldPenetrate(IncomeDamage);
+				break;
+
+			case 2:
+				armorPenetrate(IncomeDamage);
+				break;
+
+			case 3:
+				directHit(IncomeDamage);
+				break;
+
+			case 4:
+				empDamage(IncomeDamage);
+				break;
+
+			case 5:
+				protectionBreaker(IncomeDamage);
+				break;
+
+			default:
+				
+				Debug.Log("Damage Type out of range. Swap to normal damage");
+				normalDamage(IncomeDamage);
+				break;
+		}
+	}
+
+	private void protectionBreaker(float amount)
+	{
+		if (Shield > 0)
+		{
+			Shield -= amount * ShieldTier;
+
+			return;
+		}
+
+		if (Armor > 0)
+		{
+			Armor -= amount * ArmorTier;
+
+			return;
+		}
+
+		if (Health > 0)
+		{
+			amount = amount / (Shield * ArmorTier);
+			Health -= amount;
+		}
+	}
+
+	private void empDamage(float amount)
+	{
+		Shield = 0;
+
+		if(Health > 0)
+		{
+			amount = amount/(Health);
+			Health -= amount;
+		}
+	}
+
+	private void shieldPenetrate(float amount)
+	{
 		if(Shield > 0)
 		{
-			IncomeDamage = IncomeDamage/(4 * ShieldTier);
-			Shield -= IncomeDamage;
+			Shield -= amount;
+			amount = amount/(2*ShieldTier);
+		}
+		if(Armor > 0)
+		{
+			amount = amount/(3 * ArmorTier);
+			Armor -= amount;
+			amount = amount/(4 * ArmorTier);
+		}
+
+		if(Health > 0)
+		{
+			Health -= amount;
+		}
+
+	}
+
+	private void armorPenetrate(float amount)
+	{
+		if(Shield > 0)
+		{
+			amount = amount/(10 * ShieldTier);
+			Shield -= amount;
 
 			return;
 		}
 
 		if(Armor > 0)
 		{
-			IncomeDamage = IncomeDamage/(2 * ArmorTier);
-			Armor -= IncomeDamage;
-			IncomeDamage = IncomeDamage/(2 * ArmorTier);
+			Armor -= amount * 2;
 		}
 
 		if(Health > 0)
 		{
-			Health -= IncomeDamage;
+			Health -= amount / 2;
 		}
+	}
+
+	private void directHit(float amount)
+	{
+		if(Health > 0)
+		{
+			Health -= amount;
+		}
+	}
+
+	private void normalDamage(float amount)
+	{
+		if(Shield > 0)
+		{
+			amount = amount/(4 * ShieldTier);
+			Shield -= amount;
+
+			return;
+		}
+
+		if(Armor > 0)
+		{
+			amount = amount/(2 * ArmorTier);
+			Armor -= amount;
+			amount = amount/(2 * ArmorTier);
+		}
+
+		if(Health > 0)
+		{
+			Health -= amount;
+		}
+
 	}
 
 	private void increaseStamina()
