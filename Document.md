@@ -188,4 +188,15 @@ Function List
  	use to get type of bullet
 	return as intiger number
 
+Inventory
+========
+
+This script have to attach as component to player prefab
+All avilable public function of this script already be call from Player script
+
+This script 'Inventory' will take responsibility on manage weapon of player
+When attach, it provide slot for pre-store weapon. input weapon item object to pre load them.
+
+This script also handle take like Swap weapon, fill ammunation on each weapon, and make player able to hold and pick up weapon on flow.
+
 
