@@ -136,11 +136,6 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionExit(Collision collision)
-	{
-		//
-	}
-
     private void addShieldSupply(SupplyDrop armor)
     {
 
