@@ -96,6 +96,13 @@ public class Player : MonoBehaviour
 				Destroy(collision.gameObject);
 				break;
 
+			case "ArmorSupply":
+				SupplyDrop armorSupply = collision.gameObject.GetComponent<SupplyDrop>();
+				addArmor(armorSupply);
+
+				Destroy(collision.gameObject);
+				break;
+
 			default:
 				Debug.Log(collision.gameObject.tag);
 				break;
@@ -105,6 +112,23 @@ public class Player : MonoBehaviour
 	private void OnCollisionExit(Collision collision)
 	{
 		//
+	}
+
+	private void addArmor(SupplyDrop armor)
+	{
+		
+		if(armor.tier == ArmorTier)
+		{
+			Armor += armor.amount;
+		}
+		else if(armor.tier > ArmorTier)
+		{
+			ArmorTier = armor.tier;
+		}
+		else if(armor.tier < ArmorTier)
+		{
+			Armor += armor.amount / (ArmorTier - armor.tier);
+		}
 	}
 
 	public Transform GetHoldPoint()
