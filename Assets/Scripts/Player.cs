@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
 	[SerializeField] private Transform holdPoint;
 
-	private bool isGround;
+	private bool isGround = true;
 	private float rotX = 0f;
 	private float speed;
 
