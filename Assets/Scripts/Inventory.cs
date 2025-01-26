@@ -16,6 +16,11 @@ public class Inventory: MonoBehaviour
 	{
 		player = GetComponent<Player>();
 		holdPoint = player.GetHoldPoint();
+
+		if(WeaponList[0] != null)
+		{
+			WeaponList[0].BulletNumber = WeaponList[0].StartBullet;
+		}
 	}
 
 	void Update()
@@ -28,6 +33,7 @@ public class Inventory: MonoBehaviour
 
 	public void PickUpWeapon(WeaponItem weaponItem)
 	{
+		weaponItem.BulletNumber = weaponItem.StartBullet;
 		WeaponList.Add(weaponItem);
 	}
 

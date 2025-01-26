@@ -9,11 +9,6 @@ public class Weapon : MonoBehaviour
     private float fireRate = 0.1f;
     private float nextFireTime = 0f; 
 
-	void Awake()
-	{
-		weapon.BulletNumber = weapon.StartBullet;
-	}
-
 	void Start()
 	{
    		bullet = weapon.bullet;
