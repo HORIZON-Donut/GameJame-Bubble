@@ -12,14 +12,19 @@ public class Player : MonoBehaviour
 	[SerializeField] private float minAngle = -60f;
 	
 	[SerializeField] private float Health = 1000f;
-	[SerializeField] private int Stamina = 500;
-	[SerializeField] private int maxStamina = 1000;
-	[SerializeField] private int staminaDelay = 200;
 	[SerializeField] private float Armor = 500f;
 	[SerializeField] private float Shield = 250f;
+	[SerializeField] private int Stamina = 500;
+
+	[SerializeField] private float maxHealth = 255;
+	[SerializeField] private float maxArmor = 500f;
+	[SerializeField] private float maxShield = 500f;
+	[SerializeField] private int maxStamina = 1000;
 	
 	[SerializeField] private int ArmorTier = 1;
 	[SerializeField] private int ShieldTier =1;
+
+	[SerializeField] private int staminaDelay = 20;
 
 	[SerializeField] private Transform holdPoint;
 
@@ -143,30 +148,41 @@ public class Player : MonoBehaviour
 
 			case "MedicalSupply":
 				SupplyDrop medicalSupply = collision.gameObject.GetComponent<SupplyDrop>();
-				Health += medicalSupply.amount;
+				if(Health < maxHealth)
+				{
+					Health += medicalSupply.amount;
+				}
 
 				Destroy(collision.gameObject);
 				break;
 
 			case "ArmorSupply":
 				SupplyDrop armorSupply = collision.gameObject.GetComponent<SupplyDrop>();
-				addArmorSupply(armorSupply);
+				if(Armor < maxArmor)
+				{
+					addArmorSupply(armorSupply);
+				}
 
 				Destroy(collision.gameObject);
 				break;
 
             case "ShieldSupply":
                 SupplyDrop shieldSupply = collision.gameObject.GetComponent<SupplyDrop>();
-                addShieldSupply(shieldSupply);
+				if(Shield < maxShield)
+				{
+                	addShieldSupply(shieldSupply);
+				}
 
                 Destroy(collision.gameObject);
                 break;
 
             case "AmmunationSupply":
                 SupplyDrop ammunationSupply = collision.gameObject.GetComponent<SupplyDrop>();
-                inventory.FillAmmor((int)ammunationSupply.amount, ammunationSupply.tier);
+                if(inventory.FillAmmor((int)ammunationSupply.amount, ammunationSupply.tier);)
+				{
+					Destroy(collision.gameObject);
+				}
 
-                Destroy(collision.gameObject);
                 break;
 
             default:
