@@ -9,11 +9,14 @@ public class Weapon : MonoBehaviour
     private float fireRate = 0.1f;
     private float nextFireTime = 0f; 
 
+	void Awake()
+	{
+		weapon.BulletNumber = weapon.StartBullet;
+	}
+
 	void Start()
 	{
-        weapon.BulletNumber = weapon.StartBullet;
-
-		bullet = weapon.bullet;
+   		bullet = weapon.bullet;
 		fireRate = weapon.FireRate;
 
 		bullet.GetComponent<Bullet>().weapon = weapon;
