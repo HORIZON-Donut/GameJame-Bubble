@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7750174541470112214}
-  distance: 10
+  randomDistance: 1000
 --- !u!114 &7375553901918237490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870209f73d3bca941af3f60ac128adce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healt: 1
+  healt: 10
 --- !u!195 &7750174541470112214
 NavMeshAgent:
   m_ObjectHideFlags: 0

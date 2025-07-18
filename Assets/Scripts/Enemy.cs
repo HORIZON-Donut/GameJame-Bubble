@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] public int healt = 1;
+    [SerializeField] public int healt = 100;
 
 
     private void Update()
